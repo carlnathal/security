@@ -1,0 +1,52 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  ssl:
+    key-store: classpath:kanu-keystore.p12
+    key-store-type: PKCS12
+    key-store-password: prada3078
+    key-alias: kanu-keystore
+
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/security?serverTimezone=Asia/Seoul
+    username: cos
+    password: cos1234
+
+  mvc:
+    view:
+      prefix: /templates/
+      suffix: .mustache
+
+  jpa:
+    hibernate:
+      ddl-auto: update #create update none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 167766678782-f6s9pj3f0l9ssb2dbm2i9v8s4o22agvl.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - email
+              - profile
+          facebook:
+            client-id: 3978859072340339
+            client-secret: a7e10a30302ccf31218ecb5e6ad2df79
+            scope:
+              - email
+              - public_profile
+
